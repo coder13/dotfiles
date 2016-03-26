@@ -1,0 +1,18 @@
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.gitconfig: gitconfig
+    ~/.tmux.conf: tmux.conf
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+    ~/.bashrc: bashrc
+    ~/.Xmodmap: Xmodmap
+    ~/.Xinitrc: Xinitrc
+    ~/.ssh/config:
+        create: true
+        path: ssh_config
+    ~/.i3: i3
+
+- shell:
+    - [get submodule update --init --recursive, Installing submodules]

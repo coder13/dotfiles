@@ -1,0 +1,7 @@
+[user]
+	email = choover11@gmail.com
+	name = Caleb Hoover
+[push]
+	default = simple
+[core]
+	editor = subl -n -w
