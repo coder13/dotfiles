@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/caleb/.Skype'
 let g:netrw_dirhist_2='/home/caleb/.dropbox'
 let g:netrw_dirhist_3='/home/caleb/.vim'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/home/caleb/.minecraft'
 let g:netrw_dirhist_5='/home/caleb/.wine'
 let g:netrw_dirhist_6='/home/caleb/zsnes'
 let g:netrw_dirhist_7='/home/caleb/.mplayer'
+let g:netrw_dirhist_8='/home/caleb/.dotfiles/i3'

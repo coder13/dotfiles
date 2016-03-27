@@ -19,7 +19,51 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
-font pango:Sauce Code for Powerline 10
+#font pango:Sauce Code for Powerline 10
+font pango: DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
+
+###############################################################################
+# Colors
+# bar
+set $c1 #000000
+set $c2 #F4F4F4
+set $c3 #000000
+set $c4 #000000
+set $c5 #000000
+set $c6 #F4F4F4
+set $c7 #000000
+set $c8 #000000
+set $c9 #F4F4F4
+set $c10 #000000
+set $c11 #000000
+set $c12 #737373
+set $c13 #F4F4F4
+set $c14 #000000
+set $c15 #F4F4F4
+
+# windows
+set $c16 #000000
+set $c17 #000000
+set $c18 #F4F4F4
+set $c19 #ffffff
+set $c20 #000000
+set $c21 #000000
+set $c22 #737373
+set $c23 #ffffff
+set $c24 #000000
+set $c25 #000000
+set $c26 #F4F4F4
+set $c27 #ffffff
+set $c28 #000000
+set $c29 #000000
+set $c30 #F4F4F4
+set $c31 #ffffffi
+
+#dmenu
+set $c32 #000000
+set $c33 #F4F4F4
+set $c34 #F4F4F4
+set $c35 #000000
 
 new_window 1pixel
 popup_during_fullscreen smart
@@ -37,6 +81,7 @@ exec --no-startup-id which synsei && synsei load default
 exec --no-startup-id which unclutter && unclutter -jitter 10 -idle 1 &
 exec --no-startup-id which xbindkeys && xbindkeys
 exec --no-startup-id which redshift-gtk && redshift-gtk
+exec --no-startup-id nm-applet
 #exec --no-startup-id [ $(which xautolock) ] && xautolock -time 10 -locker lock
 
 # Move the current workspace to other outputs
@@ -51,7 +96,7 @@ floating_minimum_size 75 x 50
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+Q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+space exec dmenu_run
@@ -60,25 +105,13 @@ bindsym $mod+q kill
 # installed.
 bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
-# Change window focus with VIM-style keybindings
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
+# change focus with cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Move windows with VIM-style keybindings
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
+# Move windows with cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -94,8 +127,8 @@ bindsym $mod+minus split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+s layout stacking
+bindsym $mod+s layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -119,12 +152,15 @@ bindsym $mod+Shift+2 move container to workspace 2: Main
 bindsym $mod+Shift+3 move container to workspace 3: Chrome
 bindsym $mod+Shift+m move container to workspace M: Music
 
+# move focused workspace to output
+bindsym $mod+Shift+x move workspace to output right
+
 # reload the configuration file
 bindsym $mod+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Ctrl+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -134,16 +170,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -156,9 +192,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     position top
-    mode hide
-    hidden_state hide
-    modifier $mod
     status_command i3status
 
     colors {
@@ -185,5 +218,6 @@ client.focused_inactive #333333 #222222 #ffffff #888888
 client.unfocused        #333333 #222222 #888888 #888888
 client.urgent           #222222 #e86700 #ffffff #e86700
 
-focus_folllows_mouse false
+focus_follows_mouse no
+mouse_warping none
 
