@@ -151,6 +151,11 @@ if which tmux >/dev/null 2>&1; then
     test -z "$TMUX" && (tmux new-session)
 fi
 
+export TERMINAL=urxvt
+export TERM=urxvt
+export VISUAL=vim
+export EDITOR=vim
+
 #xrandr --output VGA1 --mode 1366x768
 #xrandr --output eDP1 --auto --right-of eDP1
 

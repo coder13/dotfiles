@@ -1,8 +1,8 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/caleb/.dotfiles'
-let g:netrw_dirhist_2='/home/caleb/.dotfiles/i3'
-let g:netrw_dirhist_3='/home/caleb/.dotfiles/i3/lemonbar'
-let g:netrw_dirhist_4='/home/caleb/.dotfiles/i3'
-let g:netrw_dirhist_5='/home/caleb/.dotfiles/i3/lemonbar'
-let g:netrw_dirhist_6='/home/caleb/.dotfiles/i3'
+let g:netrw_dirhist_1='/home/caleb'
+let g:netrw_dirhist_2='/home/caleb/.dotfiles'
+let g:netrw_dirhist_3='/home/caleb'
+let g:netrw_dirhist_4='/home/caleb/.dotfiles'
+let g:netrw_dirhist_5='/home/caleb/.dotfiles/i3'
+let g:netrw_dirhist_6='/home/caleb/.dotfiles'

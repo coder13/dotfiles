@@ -18,20 +18,34 @@ set $mod Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono 10
 # font pango:Sauce Code for Powerline 0
-font pango: DejaVu Sans Mono, Terminus Bold Semi-Condensed 9
+# font pango: DejaVu Sans Mono, Terminus Bold Semi-Condensed 9
 
 ###############################################################################
 # Colors
-set $black   #000000
-set $white   #F4F4F4
-set $d_grey  #656565
-set $red     #e86700
+# Base16 Bespin by Jan T. Sott
+# template by Matt Parnell, @parnmatt
+
+set $base00 #28211c
+set $base01 #36312e
+set $base03 #5e5d5c
+set $base03 #666666
+set $base04 #797977
+set $base05 #8a8986
+set $base06 #9d9b97
+set $base07 #baae9e
+set $base08 #cf6a4c
+set $base09 #cf7d34
+set $base0A #f9ee98
+set $base0B #54be0d
+set $base0C #afc4db
+set $base0D #5ea6ea
+set $base0E #9b859d
+set $base0F #937121
 
 exec --no-startup-id which nitrogen && nitrogen --restore
-exec --no-startup-id which synsei && synsei load default
-exec --no-startup-id which unclutter && unclutter -jitter 10 -idle 1 &
+exec --no-startup-id which unclutter && unclutter -jitter 0 -idle 5 &
 exec --no-startup-id which xbindkeys && xbindkeys
 exec --no-startup-id which redshift-gtk && redshift-gtk
 exec --no-startup-id nm-applet
@@ -71,10 +85,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+bar split h
+bindsym $mod+bar split _
 
 # split in vertical orientation
-bindsym $mod+minus split v
+bindsym $mod+minus split |
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -111,7 +125,7 @@ bindsym $mod+Shift+x move workspace to output right
 # reload the configuration file
 bindsym $mod+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Ctrl+Shift+r restart
+bindsym $mod+Shift+c restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -136,22 +150,22 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     position top
-    status_command i3status
+    status_command i3blocks -c ~/.i3/i3blocks.conf
 
     colors {
-        background #d_grey
-        statusline #ffffff
-        separator #656565
+        background $base03
+        statusline $base01
+        separator $base05
 
         # Class             Border  BG      Text
-        focused_workspace   #888888 #1c1c1c #91e44b
-        active_workspace    #333333 #5f676a #ffffff
-        inactive_workspace  #333333 #222222 #888888
-        urgent_workspace    #2f343a #e86700 #ffffff
+        focused_workspace   $base0C $base0D $base00
+        active_workspace    $base02 $base02 $base07
+        inactive_workspace  $base01 $base01 $base03
+        urgent_workspace    $base08 $base08 $base07
     }
 }
 
-exec --no-startup-id ./bar.sh
+# exec --no-startup-id ./bar.sh
 
 #border     - titlebar border color (NA)
 #backgr     - window border
@@ -159,11 +173,10 @@ exec --no-startup-id ./bar.sh
 #indicator  - layout type indicator
 
 # class                 border  backgr. text    indicator
-client.focused          #DDDDDD #91e44b #000000 #ffffff
-client.focused_inactive #333333 #222222 #ffffff #888888
-client.unfocused        #333333 #222222 #888888 #888888
-client.urgent           #222222 #e86700 #ffffff #e86700
+client.focused          $base0D $base0D $base00 #$base01
+client.focused_inactive $base02 $base02 $base03 #$base01
+client.unfocused        $base01 $base01 $base03 #$base01
+client.urgent           $base02 $base08 $base07 #$base08
 
 focus_follows_mouse no
-#mouse_warping none
-new_window 1pixel
+new_window none

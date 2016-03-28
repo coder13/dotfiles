@@ -9,6 +9,7 @@
     ~/.bashrc: bashrc
     ~/.Xmodmap: Xmodmap
     ~/.Xinitrc: Xinitrc
+    ~/.xresources: xresources
     ~/.i3: i3
     ~/.i3status.conf: i3status.conf
 
