@@ -148,9 +148,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # TMUX
 if which tmux >/dev/null 2>&1; then
     #if not inside a tmux session, and if no session is started, start a new session
-    test -z "$TMUX" && (tmux attach || tmux new-session)
+    test -z "$TMUX" && (tmux new-session)
 fi
 
-xrandr --output VGA1 --mode 1366x768
-xrandr --output eDP1 --auto --right-of eDP1
+#xrandr --output VGA1 --mode 1366x768
+#xrandr --output eDP1 --auto --right-of eDP1
 

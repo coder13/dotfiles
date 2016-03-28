@@ -9,9 +9,6 @@
     ~/.bashrc: bashrc
     ~/.Xmodmap: Xmodmap
     ~/.Xinitrc: Xinitrc
-    ~/.ssh/config:
-        create: true
-        path: ssh_config
     ~/.i3: i3
     ~/.i3status.conf: i3status.conf
 

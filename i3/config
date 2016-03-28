@@ -19,63 +19,16 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
-#font pango:Sauce Code for Powerline 10
-font pango: DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
+# font pango:Sauce Code for Powerline 0
+font pango: DejaVu Sans Mono, Terminus Bold Semi-Condensed 9
 
 ###############################################################################
 # Colors
-# bar
-set $c1 #000000
-set $c2 #F4F4F4
-set $c3 #000000
-set $c4 #000000
-set $c5 #000000
-set $c6 #F4F4F4
-set $c7 #000000
-set $c8 #000000
-set $c9 #F4F4F4
-set $c10 #000000
-set $c11 #000000
-set $c12 #737373
-set $c13 #F4F4F4
-set $c14 #000000
-set $c15 #F4F4F4
+set $black   #000000
+set $white   #F4F4F4
+set $d_grey  #656565
+set $red     #e86700
 
-# windows
-set $c16 #000000
-set $c17 #000000
-set $c18 #F4F4F4
-set $c19 #ffffff
-set $c20 #000000
-set $c21 #000000
-set $c22 #737373
-set $c23 #ffffff
-set $c24 #000000
-set $c25 #000000
-set $c26 #F4F4F4
-set $c27 #ffffff
-set $c28 #000000
-set $c29 #000000
-set $c30 #F4F4F4
-set $c31 #ffffffi
-
-#dmenu
-set $c32 #000000
-set $c33 #F4F4F4
-set $c34 #F4F4F4
-set $c35 #000000
-
-new_window 1pixel
-popup_during_fullscreen smart
-workspace_auto_back_and_forth yes
-
-for_window [class="Xfce4-notifyd"] floating enable
-for_window [class="jetbrains-idea-ce"] floading disable
-
-exec --no-startup-id which clipit && clipit
-exec --no-startup-id which compton && compton -b
-exec --no-startup-id which connman-notify && connman-notify &
-exec --no-startup-id which dunst && dunst &
 exec --no-startup-id which nitrogen && nitrogen --restore
 exec --no-startup-id which synsei && synsei load default
 exec --no-startup-id which unclutter && unclutter -jitter 10 -idle 1 &
@@ -166,15 +119,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
-
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 5 px or 5 ppt
         bindsym Down resize grow height 5 px or 5 ppt
@@ -195,7 +139,7 @@ bar {
     status_command i3status
 
     colors {
-        background #1c1c1c
+        background #d_grey
         statusline #ffffff
         separator #656565
 
@@ -206,6 +150,8 @@ bar {
         urgent_workspace    #2f343a #e86700 #ffffff
     }
 }
+
+exec --no-startup-id ./bar.sh
 
 #border     - titlebar border color (NA)
 #backgr     - window border
@@ -219,5 +165,5 @@ client.unfocused        #333333 #222222 #888888 #888888
 client.urgent           #222222 #e86700 #ffffff #e86700
 
 focus_follows_mouse no
-mouse_warping none
-
+#mouse_warping none
+new_window 1pixel
