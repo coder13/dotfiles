@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+'use strict'
+
+const spawn = require('child_process').spawn;
+const exec = require('child_process').exec;
+const ls = spawn('tmux', ['ls', '-F', '#{session_attached} #{session_name}'])
+
+ls.stdout.on('data', (data) => {
+	data = String(data).split('\n')
+	data.forEach((session) => {
+		session = session.split(' ');
+		if (session[0] === '0' && parseInt(session[1]) !== NaN) {
+			console.log('killing session: ', session[1]);
+			exec(`tmux kill-session -t ${session[1]}`);
+		}
+	});
+});
+
+ls.stderr.on('data', (data) => { console.log(`stderr: ${data}`); });
+
+ls.on('close', (code) => {
+	console.log(`tmux ls exited with code ${code}`);
+});

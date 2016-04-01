@@ -8,10 +8,12 @@
     ~/.vimrc: vimrc
     ~/.bashrc: bashrc
     ~/.Xmodmap: Xmodmap
-    ~/.Xinitrc: Xinitrc
-    ~/.xresources: xresources
+    ~/.xinitrc: xinitrc
+    ~/.Xresources: Xresources
+    ~/.Xresources.d: Xresources.d
     ~/.i3: i3
     ~/.i3status.conf: i3status.conf
+    ~/.compton.conf: compton.conf
 
 - shell:
     - [get submodule update --init --recursive, Installing submodules]

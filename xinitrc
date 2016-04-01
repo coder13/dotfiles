@@ -25,7 +25,7 @@ _rie(){
 }
 
 # Scripts and services to start just after X11
-[ -r $XRESOURCES ] && xrdb -merge $XRESOURCES
+[ -r $XRESOURCES ] && xrdb -I~/.Xresources.d/ -merge $XRESOURCES
 _rie nvidia-settings -a InitialPixmapPlacement=2
 _which ssh-agent && _ssh-agent
 [ -x $HOME/.screenlayout/default.sh ] && $HOME/.screenlayout/default.sh
@@ -41,6 +41,9 @@ fi
 
 xset m 1/8 0
 xset r rate 200 32
+
+xrandr --output eDP1 --auto
+xrandr --output VGA1 --auto --right-of eDP1
 
 if [ -n "$1" ]
 then

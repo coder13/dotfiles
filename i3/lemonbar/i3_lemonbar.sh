@@ -29,7 +29,7 @@ $(dirname $0)/i3_workspaces.py > ${panel_fifo} &
 # ~/bin/irc_warn &
 
 # Conky, "SYS"
-# conky -c $(dirname $0)/i3_lemonbar_conky > "${panel_fifo}" &
+conky -c $(dirname $0)/i3_lemonbar_conky > "${panel_fifo}" &
 
 ### UPDATE INTERVAL METERS
 cnt_vol=${upd_vol}
@@ -47,10 +47,10 @@ while :; do
   fi
 
   # MPD
-  # if [ $((cnt_mpd++)) -ge ${upd_mpd} ]; then
-  #   printf "%s%s\n" "MPD" "$(mpc current -f '[[%artist% - ]%title%]|[%file%]' 2>&1 | head -c 70)" > "${panel_fifo}"
-  #   cnt_mpd=0
-  # fi
+  if [ $((cnt_mpd++)) -ge ${upd_mpd} ]; then
+    printf "%s%s\n" "MPD" "$(mpc current -f '[[%artist% - ]%title%]|[%file%]' 2>&1 | head -c 70)" > "${panel_fifo}"
+    cnt_mpd=0
+  fi
 
   # Battey, "BAT"
   if [ $((cnt_bat++)) -ge ${upd_bat} ]; then
@@ -75,3 +75,4 @@ cat "${panel_fifo}" | $(dirname $0)/i3_lemonbar_parser.sh \
   | lemonbar -p -f "${font}" -f "${iconfont}" -g "${geometry}" -B "${color_back}" -F "${color_fore}" -u 3 &
 
 wait
+

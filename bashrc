@@ -8,6 +8,13 @@ case $- in
       *) return;;
 esac
 
+#if [ -f `which powerline-daemon` ]; then
+#	powerline-daemon -q
+#	POWERLINE_BASH_CONTINUATION=1
+#	POWERLINE_BASH_SELECT=1
+#	. /usr/share/powerline/bindings/bash/powerline.sh
+#fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -148,14 +155,19 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # TMUX
 if which tmux >/dev/null 2>&1; then
     #if not inside a tmux session, and if no session is started, start a new session
-    test -z "$TMUX" && (tmux new-session)
+    test -z "$TMUX" && (tmux new-session -s $$)
 fi
 
-export TERMINAL=urxvt
-export TERM=urxvt
+_trap_exit() { tmux kill-session -t $$; }
+trap _trap_exit EXIT
+
+#alias rm='mv ~/.trash'
+
 export VISUAL=vim
 export EDITOR=vim
-
-#xrandr --output VGA1 --mode 1366x768
-#xrandr --output eDP1 --auto --right-of eDP1
+export RTV_EDITOR=vim
+export BROWSER=w3m
+#export TERMINAl=urxvt
+#export TERM=urxvt
+export TERM=screen-256color-bce
 
