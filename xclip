@@ -1,0 +1,13 @@
+Successfully initialized wpa_supplicant
+Could not read interface p2p-dev-wlp3s0 flags: No such device
+nl80211: Could not set interface 'p2p-dev-wlp3s0' UP
+nl80211: deinit ifname=p2p-dev-wlp3s0 disabled_11b_rates=0
+p2p-dev-wlp3s0: Failed to initialize driver interface
+P2P: Failed to enable P2P Device interface -i
+Successfully initialized wpa_supplicant
+Could not read interface p2p-dev-wlp3s0 flags: No such device
+nl80211: Could not set interface 'p2p-dev-wlp3s0' UP
+nl80211: deinit ifname=p2p-dev-wlp3s0 disabled_11b_rates=0
+p2p-dev-wlp3s0: Failed to initialize driver interface
+P2P: Failed to enable P2P Device interface
+ -i

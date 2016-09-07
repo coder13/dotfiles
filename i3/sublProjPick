@@ -1,0 +1,14 @@
+#!/bin/bash
+paths="Projects/**/* websites/**/* sublime-projects/**/*"
+
+handle_selection() {
+  if [[ $1 ]]; then
+    project=$( cd ~/; ls -t $paths | grep "/$1.sublime" )
+    touch "$project"
+    subl --project "$project"
+  fi
+  exit 0
+}
+
+handle_selection "$( cd ~/; ls -t $paths | grep sublime-project | sed -re 's/.+\/([^\/]+)\.sublime-project/\1/' | rofi -dmenu -i -p 'subl ↠ ' )"
+

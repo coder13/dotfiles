@@ -1,0 +1,17 @@
+#!/bin/bash 
+action=$(echo close | rofi -dmenu -p "Google: ")
+
+search () {
+  query=$1
+  index=$2
+
+  sel=$(printf "$(googler -n 15 -s $2 --json $1 | jq '.[].url' | sed -e 's/^"//' -e 's/"$//')\nMore\n" | rofi -dmenu)
+
+  case $sel in
+    "") exit ;;
+    "More") search $query $(expr $index + 15) ;;
+    *) google-chrome-beta $sel exit ;;
+  esac
+}
+
+search $action 0

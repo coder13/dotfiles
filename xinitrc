@@ -25,7 +25,7 @@ _rie(){
 }
 
 # Scripts and services to start just after X11
-[ -r $XRESOURCES ] && xrdb -I~/.Xresources.d/ -merge $XRESOURCES
+[ -r $XRESOURCES ] && xrdb -I.Xresources.d/ -merge $XRESOURCES
 _rie nvidia-settings -a InitialPixmapPlacement=2
 _which ssh-agent && _ssh-agent
 [ -x $HOME/.screenlayout/default.sh ] && $HOME/.screenlayout/default.sh
@@ -33,11 +33,13 @@ _which ssh-agent && _ssh-agent
 setxkbmap -option caps:escape
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
-	for f in /etc/X11/xinit/xinitrc.d/*; do
-		[ -x "$f" ] && . "$f"
-	done
-	unset f
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
 fi
+
+xmodmap ~/.Xmodmap
 
 xset m 1/8 0
 xset r rate 200 32
@@ -47,7 +49,7 @@ xrandr --output VGA1 --auto --right-of eDP1
 
 if [ -n "$1" ]
 then
-	[ -n "$(which $1)" ] && exec $1
+  [ -n "$(which $1)" ] && exec {1:-i3}
 else
-	exec i3
+  exec i3
 fi

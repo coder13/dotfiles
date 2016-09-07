@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/home/caleb/.dotfiles/i3/lemonbar'
+let g:netrw_dirhist_2='/home/caleb/cubing/sessions'
+let g:netrw_dirhist_3='/etc/ppp/peers'

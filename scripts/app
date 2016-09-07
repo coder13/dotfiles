@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const cp = require('child_process');
+
+function usage () {
+  console.log('you know how to use it');
+}
+
+function rofi () {
+  cp.exec('rofi -dmenu -p "URL:"');
+
+if (['-h', '--help'].contains(process.argv[2])) {
+  usage();
+}
+
+child

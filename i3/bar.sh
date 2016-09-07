@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-ruby barr.rb | lemonbar
+./barr.rb | lemonbar -g 1366x30 -B "#28211c" -F "#baae9e" -a 20  -f "Droid Sans-10" -f "FontAwesome-10" | sh
 

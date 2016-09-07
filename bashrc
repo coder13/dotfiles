@@ -8,13 +8,6 @@ case $- in
       *) return;;
 esac
 
-#if [ -f `which powerline-daemon` ]; then
-#	powerline-daemon -q
-#	POWERLINE_BASH_CONTINUATION=1
-#	POWERLINE_BASH_SELECT=1
-#	. /usr/share/powerline/bindings/bash/powerline.sh
-#fi
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -43,7 +36,8 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in xterm-color) color_prompt=yes;;
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -93,7 +87,7 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# ls aliases
+# some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -101,6 +95,8 @@ alias l='ls -CF'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias nautilus='nautilus --no-desktop'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -122,52 +118,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+xset r rate 200 32
+
 export NVM_DIR="/home/caleb/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm# Copyright (c) npm, Inc. and Contributors
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Swaps ctrl and alt keys
-xmodmap ~/.Xmodmap
-
-# Random:
-
-alias cp='cp -iv'                           # Preferred 'cp' implementation
-alias mv='mv -iv'                           # Preferred 'mv' implementation
-alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
-mcd () { mkdir -p "$1" && cd "$1"; }        # Makes new Dir and jumps inside
-
-# git:
-alias gs='git status'
-alias gd='git icdiff'
-alias gdiff='git icdiff'
-alias diff='icdiff'
-alias nmrestart='service network-manager restart'
-
-# ruby gems permisions:
-#export GEM_HOME=~/.gem
-#export GEM_PATH=~/.gem
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# TMUX
-if which tmux >/dev/null 2>&1; then
-    #if not inside a tmux session, and if no session is started, start a new session
-    test -z "$TMUX" && (tmux new-session -s $$)
-fi
-
-_trap_exit() { tmux kill-session -t $$; }
-trap _trap_exit EXIT
-
-#alias rm='mv ~/.trash'
-
-export VISUAL=vim
-export EDITOR=vim
-export RTV_EDITOR=vim
-export BROWSER=w3m
-#export TERMINAl=urxvt
-#export TERM=urxvt
-export TERM=screen-256color-bce
-
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$HOME/.gem
+export PATH=$PATH':/home/caleb/.gem/bin'
