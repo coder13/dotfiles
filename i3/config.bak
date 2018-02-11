@@ -64,7 +64,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show run -run-command "bash -i -c '{cmd}'"
-bindsym $mod+q exec --no-startup-id ~/.dotfiles/scripts/appC
+bindsym $mod+q exec --no-startup-id ~/.dotfiles/scripts/app
 bindsym $mod+plus exec --no-startup-id ~/.dotfiles/scripts/=
 
 # change focus with cursor keys:

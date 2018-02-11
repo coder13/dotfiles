@@ -199,7 +199,6 @@ mode "$mode_gaps_outer" {
 # Window stuff: 
 
 for_window [class="Rhythmbox"] move container to workspace M
-for_window [class="Amarok"] move container to workspace M
 for_window [class="Spotify"] move container to workspace M
 
 for_window [window_role="pop-up"] floating enable
@@ -244,9 +243,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec ~/.dotfiles/i3/mute && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%-
+bindsym XF86AudioMute exec ~/.dotfiles/i3/mute
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play

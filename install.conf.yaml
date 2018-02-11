@@ -3,23 +3,19 @@
 - link:
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
+    ~/.bashrc: bashrc
+    ~/.profile: profile
+    ~/.i3: i3
+    ~/.vimrc: vimrc
+    ~/.vim: vim
     ~/.tmux: tmux
     ~/.tmux.conf: tmux.conf
-    ~/.vim: vim
-    ~/.vimrc: vimrc
-    ~/.bashrc: bashrc
-    ~/.zshrc: zshrc
-    ~/.Xmodmap: Xmodmap
     ~/.xinitrc: xinitrc
     ~/.xprofile: xprofile
     ~/.Xresources: Xresources
     ~/.Xresources.d: Xresources.d
-    ~/.i3: i3
-    ~/.i3status.conf: i3status.conf
-    ~/.i3blocks.conf: i3blocks.conf
-    ~/.compton.conf: compton.conf
-    ~/.profile: profile
     ~/.Xmodmap: Xmodmap
+    ~/.compton.conf: compton.conf
 
 - shell:
     - [get submodule update --init --recursive, Installing submodules]

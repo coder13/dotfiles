@@ -22,4 +22,8 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 
-. /home/caleb/torch/install/bin/torch-activate
+export PATH=$PATH:/usr/local/heroku/bin
+
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
