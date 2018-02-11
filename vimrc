@@ -4,24 +4,29 @@
 
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-" call vundle#rc()
-" Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/vundle'
 
-" Bundle 'tpope/vim-surround'
-" Bundle 'gcmt/breeze.vim'
-" Bundle 'kien/ctrlp.vim'
-" Bundle 'SirVer/ultisnips'
-" Bundle 'tomtom/tcomment_vim'
-" Bundle 'vim-airline/vim-airline'
-" Bundle 'vim-airline/vim-airline-themes'
-" Bundle 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'gcmt/breeze.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutte'
 
 " Color Themes
-" Bundle 'flazz/vim-colorschemes'
-" colorscheme Monokai
-" colorscheme monokain
-colorscheme slate
+Plugin 'flazz/vim-colorschemes'
+
+call vundle#end()
+
+""""""""
+set background=dark
+colorscheme bespin
+
 
 """"""""
 if has('autocmd')

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# day=$(curl https://api.coinbase.com/v2/prices/spot?date=$(date '+%Y-%m-%d') -s | jq '.data.amount' | sed 's/"//g')
+current=$(curl https://api.coinbase.com/v2/prices/spot -s | jq '.data.amount' | sed 's/"//g')
+
+echo "\$$current"
+# echo "\$$(curl 'https://api.coinbase.com/v2/prices/spot' -s | jq '.data.amount' | sed 's/"//g' | sed 's/\B[0-9]\{3\}\>/,&/')"

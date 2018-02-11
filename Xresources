@@ -1,14 +1,56 @@
-! #include "bespin"
+#include "bespin"
+! ------------------- Color scheme
+!*.background:      #131415
+!*.foreground:      #A3BAD0
+!*.cursorColor:     #8d9b53
+!*fading:                40
+!*fadeColor:             #002b36
+!*pointerColorBackground:#586e75
+!*pointerColorForeground:#93a1a1
+
+
+!! black dark/light
+!*color0:                #073642
+!*color8:                #002b36
+
+!! red dark/light
+!*color1:                #dc322f
+!*color9:                #cb4b16
+
+!! green dark/light
+!*color2:                #859900
+!*color10:               #586e75
+
+!! yellow dark/light
+!*color3:                #b58900
+!*color11:               #657b83
+
+!! blue dark/light
+!*color4:                #268bd2
+!*color12:               #839496
+
+!! magenta dark/light
+!*color5:                #d33682
+!*color13:               #6c71c4
+
+!! cyan dark/light
+!*color6:                #2aa198
+!*color14:               #93a1a1
+
+!! white dark/light
+!*color7:                #eee8d5
+!*color15:               #fdf6e3
+
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
-rofi.opacity:     90
-rofi.width:       800
+rofi.opacity:     92
+rofi.width:       1000
 rofi.padding:     5
-rofi.lines:       20
+rofi.lines:       15
 rofi.columns:     1
-rofi.font:        SourceCodePro 12
+rofi.font:        Hack 12
 !rofi.fg:         base05
 !rofi.bg:         base00
 !rofi.hlfg:       base0A
@@ -39,8 +81,8 @@ urxvt*font:         xft:Hack:style=Regular:pixelsize=12:antialias=true
 urxvt*boldFont:     xft:Hack:style=Bold:pixelsize=12
 
 ! ----- Colors: ----------------------------------------------------------------
-urxvt*background: black
-urxvt*foreground: white
+!urxvt*background: black
+!urxvt*foreground: white
 
 ! UnderLine:
 urxvt*colorULMode:  off
@@ -59,7 +101,8 @@ URxvt*colorIT: yellow
 ! ----- Scroll: ---------
 urxvt*scrollBar:        false
 urxvt*scrollBar_right:  false
-! termname : name must exist in the termcap database urxvt*termname:         rxvt-unicode-256color
+! termname : name must exist in the termcap database
+urxvt*termname:         rxvt-unicode-256color
 urxvt*savelines:        1000
 
 ! ----- Border: ---------
@@ -67,15 +110,13 @@ urxvt*internalBorder:   2
 urxvt*externalBorder:   0
 
 ! ----- Transparency: ---
-urxvt*transparent:      true
+urxvt*transparent:      false
 ! URxvt*.shading:   change the background (always)
 ! 0 to 99 darkens, 101 to 200 lightens
 ! Dont think this is having any effect. Orignially 120
 ! Only extreme (20 and 200) have any effect. Really should
 ! change the actual BD colour
 urxvt*shading:          10
-!urxvt*fading:          20
-!urxvt*fadeColor:       base00
 
 urxvt*keysym.C-v: perl:clipboard:paste
 

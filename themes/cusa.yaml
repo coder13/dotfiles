@@ -1,0 +1,45 @@
+# vim: filetype=yaml
+---
+meta:
+  description: AUTOMATICALLY GENERATED THEME
+bar_colors:
+  separator: '#101010'
+  background: '#568DB7'
+  statusline: '#707070'
+  focused_workspace:
+    border: '#5DD75D'
+    background: '#5DD75D'
+    text: '#f0f0f0'
+  active_workspace:
+    border: '#80AFD3'
+    background: '#80AFD3'
+    text: '#202020'
+  inactive_workspace:
+    border: '#568DB7'
+    background: '#568DB7'
+    text: '#303050'
+  urgent_workspace:
+    border: '#FF6E6E'
+    background: '#FF6E6E'
+    text: '#202020'
+window_colors:
+  focused:
+    border: '#5DD75D'
+    background: '#5DD75D'
+    text: '#f0f0f0'
+    indicator: '#568DB7'
+  focused_inactive:
+    border: '#80AFD3'
+    background: '#80AFD3'
+    text: '#303050'
+    indicator: '#568DB7'
+  unfocused:
+    border: '#568DB7'
+    background: '#568DB7'
+    text: '#303050'
+    indicator: '#568DB7'
+  urgent:
+    border: '#80AFD3'
+    background: '#FF6E6E'
+    text: '#202020'
+    indicator: '#FF6E6E'

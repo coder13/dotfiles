@@ -65,3 +65,5 @@ export NVM_DIR="/home/caleb/.nvm"
 export GEM_HOME=$HOME/.gem
 export GEM_PATH=$HOME/.gem
 export PATH=$PATH':/home/caleb/.gem/bin'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

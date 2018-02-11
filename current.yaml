@@ -1,0 +1,55 @@
+# vim: filetype=yaml
+---
+meta:
+  description: AUTOMATICALLY GENERATED THEME
+bar_colors:
+  separator: dimgrey
+  background: darkslategray
+  statusline: grey
+  focused_workspace:
+    border: lightsteelblue
+    background: cornflowerblue
+    text: black
+  active_workspace:
+    border: dimgrey1
+    background: dimgrey1
+    text: darkgrey
+  inactive_workspace:
+    border: darkslategray
+    background: darkslategray
+    text: dimgrey
+  urgent_workspace:
+    border: salmon
+    background: salmon
+    text: darkgrey
+colors:
+  dimgrey: '#666666'
+  darkslategray: '#36312e'
+  grey: '#8a8986'
+  lightsteelblue: '#afc4db'
+  cornflowerblue: '#5ea6ea'
+  black: '#28211c'
+  dimgrey1: '#5e5d5c'
+  darkgrey: '#baae9e'
+  salmon: '#cf6a4c'
+window_colors:
+  focused:
+    border: cornflowerblue
+    background: cornflowerblue
+    text: black
+    indicator: darkslategray
+  focused_inactive:
+    border: dimgrey1
+    background: dimgrey1
+    text: dimgrey
+    indicator: darkslategray
+  unfocused:
+    border: darkslategray
+    background: darkslategray
+    text: dimgrey
+    indicator: darkslategray
+  urgent:
+    border: dimgrey1
+    background: salmon
+    text: darkgrey
+    indicator: salmon

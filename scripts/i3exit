@@ -1,6 +1,6 @@
 #!/bin/sh
 lock() {
-    ~/git/i3lock-fancy/lock
+    ~/.dotfiles/git/i3lock-fancy/lock -p -t ""
 }
 
 case "$1" in
