@@ -18,7 +18,7 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango: DejaVu Sans Mono, Terminus Semi-Condensed 20
-font pango: Hack 10
+font pango: Hack 12
 
 # Background:
 exec --no-startup-id gnome-settings-daemon &
@@ -26,7 +26,7 @@ exec --no-startup-id compton -f
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id ~/bash/xrandr.sh
 exec --no-startup-id ~/bash/feh.sh &
-exec_always --no-startup-id /home/caleb/.dotfiles/i3/polybar/launch.sh &
+exec_always --no-startup-id /home/caleb/.dotfiles/polybar/launch.sh &
 
 # Tray:
 exec --no-startup-id shutter --min_at_startup &
@@ -70,14 +70,13 @@ floating_minimum_size 75 x 50
 
 # start a terminal
 bindsym $mod+Return exec urxvt -e /usr/bin/tmux
-bindsym $mod+Shift+Return exec urxvt --class Furxvt
+bindsym $mod+Shift+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show run -run-command "bash -i -c '{cmd}'"
-bindsym $mod+q exec --no-startup-id ~/.dotfiles/scripts/app
 bindsym $mod+plus exec --no-startup-id ~/.dotfiles/scripts/=
 
 # change focus with cursor keys:
@@ -117,7 +116,22 @@ bindsym $mod+c focus child
 bindsym $mod+p scratchpad show
 bindsym $mod+Shift+p move scratchpad
 
+# workspaces
 workspace_auto_back_and_forth yes
+
+workspace 1 output DVI-D-0
+workspace 2 output VGA-0
+workspace 3 output DVI-D-0
+workspace 4 output VGA-0
+workspace 5 output DVI-D-0
+workspace 6 output VGA-0
+workspace 7 output DVI-D-0
+workspace 8 output VGA-0
+workspace 9 output DVI-D-0
+workspace M output VGA-0
+
+workspace DesktopL output DVI-D-0
+workspace DesktopR output VGA-0
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -143,6 +157,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+m move container to workspace M
 
+bindsym $mod+Escape workspace DesktopL; workspace DesktopR 
+
 # move focused workspace to output
 bindsym $mod+Shift+x move workspace to output right
 
@@ -156,8 +172,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 # Gaps:
 for_window [class="^.*"] border pixel 1
 
-gaps inner 2
-gaps outer 2
+smart_gaps on
+smart_borders no_gaps
+
+gaps inner 1
+gaps outer 1
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -215,6 +234,8 @@ for_window [class="(?i)pavucontrol"] floating enable, border normal, move positi
 for_window [class="Wine"] floating enable
 for_window [class="Shutter"] floating enable
 
+for_window [instance="floating"] floating enable
+
 # probably don't want
 # for_window [window_role="app"] floating enable
 
@@ -243,8 +264,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ 
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ 
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%-
 bindsym XF86AudioMute exec ~/.dotfiles/i3/mute
 
 # Media player controls
@@ -253,63 +274,55 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous 
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 
-set $bg_color #444444
-set $fg_color #dddddd
-set $base_color #333333
-set $text_color $eeeeee
-set $s_bg_color #03a9f4
-set $s_fg_color #eeeeee
-set $t_bg_color #03a9f4
+# colors
 
-set $info_fg_color #ffffff
-set $info_bg_color #03a9f4
-set $warning_fg_color #ffffff
-set $warning_bg_color #ef6c00
-set $question_fg_color #ffffff
-set $question_bg_color #673ab7
-set $error_fg_color #ffffff
-set $error_bg_color #f44336
-set $link_color #3f51b5
-set $warn_color #ef6c00
-set $success_color #4caf50
-set $error_color #f443
+set $base00 #28211c
+set $base01 #36312e
+set $base02 #5e5d5c
+set $base03 #666666
+set $base04 #797977
+set $base05 #8a8986
+set $base06 #9d9b97
+set $base07 #baae9e
+set $base08 #cf6a4c
+set $base09 #cf7d34
+set $base0A #f9ee98
+set $base0B #54be0d
+set $base0C #afc4db
+set $base0D #5ea6ea
+set $base0E #9b859d
+set $base0F #937121
+
+# background     base01
+# background-alt base02
+# foreground     base0A
+# foreground-alt base09
+# primary        base0B
+# secondary      base0D
+# alert          base08
 
 bar {
-    font pango: Hack 16
     position bottom
     tray_output primary
+
+    colors {
+        separator $base03
+        background $base01
+        statusline $base0A
+        # Class             border  BG      Text
+        focused_workspace   $base03 $base03 $base0A
+        active_workspace    $base02 $base02 $base0A
+        inactive_workspace  $base01 $base01 $base0A
+        urgent_workspace    $base08 $base08 $base0A
+    }
 }
 
-# bar {
-#     position top
-#     i3bar_command i3bar -t
-#     status_command i3blocks
-
-#     font pango: Hack 11
-
-#     tray_output primary
-#     tray_padding 0
-
-#     colors {
-#       background $bg_color
-#       statusline $text_color
-
-#       # Class             border      BG          Text
-#       focused_workspace   $base_color $s_bg_color $s_fg_color
-#       active_workspace    $base_color $base_color   $text_color
-#       inactive_workspace  $base_color $base_color   $text_color
-#       urgent_workspace    $warn_color $warn_color $text_color
-#     }
-# }
-
-# class                 border      BG          Text
-client.focused          $base_color $s_bg_color $s_fg_color
-client.focused_inactive $base_color $bg_color   $text_color
-client.unfocused        $base_color $bg_color   $text_color
-client.urgent           $warn_color $warn_color $text_color
+client.focused          $base03 $base03 $base0A $base01 $base03
+client.focused_inactive $base02 $base02 $base0A $base01 $base02
+client.unfocused        $base01 $base01 $base0A $base01 $base01
+client.urgent           $base02 $base08 $base0A $base08 $base0A
+client.background       $base0A
 
 focus_follows_mouse no
 new_window none

@@ -1,14 +1,12 @@
 - clean: ['~']
 
 - link:
-    ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
     ~/.bashrc: bashrc
     ~/.profile: profile
     ~/.i3: i3
     ~/.vimrc: vimrc
     ~/.vim: vim
-    ~/.tmux: tmux
     ~/.tmux.conf: tmux.conf
     ~/.xinitrc: xinitrc
     ~/.xprofile: xprofile
@@ -16,6 +14,8 @@
     ~/.Xresources.d: Xresources.d
     ~/.Xmodmap: Xmodmap
     ~/.compton.conf: compton.conf
+    ~/.config/polybar: polybar
+    ~/.urxvt: urxvt
 
 - shell:
     - [get submodule update --init --recursive, Installing submodules]
