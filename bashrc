@@ -50,5 +50,3 @@ extract () {
 source ~/.bash/path.sh
 source ~/.bash/aliases.sh
 source ~/.bash/prompt.sh
-
-echo foo

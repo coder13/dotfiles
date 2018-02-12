@@ -1,45 +1,76 @@
-! Base16 Bespin
-! Scheme: Jan T. Sott
+! special
+#define def_foreground #c5c8c6
+#define def_background #1d1f21
+#define def_cursorColor #c5c8c6
 
-#define base00 #28211c
-#define base01 #36312e
-#define base02 #5e5d5c
-#define base03 #666666
-#define base04 #797977
-#define base05 #8a8986
-#define base06 #9d9b97
-#define base07 #baae9e
-#define base08 #cf6a4c
-#define base09 #cf7d34
-#define base0A #f9ee98
-#define base0B #54be0d
-#define base0C #afc4db
-#define base0D #5ea6ea
-#define base0E #9b859d
-#define base0F #937121
+! black
+#define def_color0 #282a2e
+#define def_color8 #373b41
 
-*foreground:   base05
-*background:   base00
-*cursorColor:  base05
+! red
+#define def_color1 #a54242
+#define def_color9 #cc6666
 
-*color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
+! green
+#define def_color2 #8c9440
+#define def_color10 #b5bd68
 
-*color8:       base03
-*color9:       base09
-*color10:      base01
-*color11:      base02
-*color12:      base04
-*color13:      base06
-*color14:      base0F
-*color15:      base07
+! yellow
+#define def_color3 #de935f
+#define def_color11 #f0c674
 
+! blue
+#define def_color4 #5f819d
+#define def_color12 #81a2be
+
+! magenta
+#define def_color5 #85678f
+#define def_color13 #b294bb
+
+! cyan
+#define def_color6 #5e8d87
+#define def_color14 #8abeb7
+
+! white
+#define def_color7 #707880
+#define def_color15 #c5c8c6
+
+! special
+*.foreground: def_foreground
+*.background: def_background
+*.cursorColor: def_cursorColor
+
+! black
+*.color0: def_color0
+*.color8: def_color8
+
+! red
+*.color1: def_color1
+*.color9: def_color9
+
+! green
+*.color2: def_color2
+*.color10: def_color10
+
+! yellow
+*.color3: def_color3
+*.color11: def_color11
+
+! blue
+*.color4: def_color4
+*.color12: def_color12
+
+! magenta
+*.color5: def_color5
+*.color13: def_color13
+
+! cyan
+*.color6: def_color6
+*.color14: def_color14
+
+! white
+*.color7: def_color7
+*.color15: def_color15
 
 ! Xft
 Xft.dpi: 96
@@ -57,18 +88,18 @@ rofi.padding:     5
 rofi.lines:       15
 rofi.columns:     1
 rofi.font:        Hack 12
-rofi.bw:          2
+rofi.bw:          1
 rofi.eh:          1
 rofi.fixed-num-lines:   false
 rofi.hmode:             false
 rofi.terminal:          urxvt
 rofi.ssh-set-title:     true
 !
-rofi.fg:         base05
-rofi.bg:         base00
-rofi.hlfg:       base0A
-rofi.hlbg:       base02
-rofi.bc:         base01
+rofi.bg:         def_color0
+rofi.fg:         def_color15
+rofi.hlfg:       def_color0
+rofi.hlbg:       def_color15
+rofi.bc:         def_color15
 
 ! ----- urxvt ------------------------------------------------------------------
 ! see: http://510x.se/notes/posts/Configuring_and_using_rxvt-unicode/
@@ -83,49 +114,49 @@ rofi.bc:         base01
 !
 ! should only be xft=fontconfig so these 'core' fonts should be changed. 
 ! updated 2015-11-25
-URxvt*font:         xft:Hack:style=Regular:pixelsize=12:antialias=true
-URxvt*boldFont:     xft:Hack:style=Bold:pixelsize=12
+URxvt.font:         xft:Hack:style=Regular:pixelsize=12:antialias=true
+URxvt.boldFont:     xft:Hack:style=Bold:pixelsize=12:antialias=true
 
 ! UnderLine:
-URxvt*colorULMode:  off
-URxvt*colorUL:     #FFFF00
+URxvt.colorULMode:  on
+URxvt.colorUL:     	base02
 
 !! this makes the prompt yellow, I think
-URxvt*colorIT: base0A
-!! URxvt*colorBD: #DB6E00 overridded in the Seoul256 colorscheme
-!URxvt*colorRV: #ff0000
+URxvt.colorIT: 			base02
+!! URxvt.colorBD: #DB6E00 overridded in the Seoul256 colorscheme
+!URxvt.colorRV: #ff0000
 !! changes the prompt colour
-!URxvt*intensityStyles:	true
+URxvt.intensityStyles:	true
 
-urxvt*underlineColor:   base01
-URxvt*pointerColor:     base0A
+URxvt.underlineColor:   color0
+URxvt.pointerColor:     base02
 
 ! ----- Scroll: ---------
-URxvt*scrollBar:        false
-URxvt*scrollBar_right:  false
-URxvt*termname:         rxvt-unicode-256color
-URxvt*savelines:        1000
+URxvt.scrollBar:        false
+URxvt.scrollBar_right:  false
+URxvt.termname:         rxvt-unicode-256color
+URxvt.savelines:        1000
 
 ! ----- Border: ---------
-URxvt*internalBorder:   2
-URxvt*externalBorder:   0
+URxvt.internalBorder:   2
+URxvt.externalBorder:   0
 
 ! ----- Transparency: ---
-URxvt*transparent:      false
+URxvt.transparent:      false
 
-! URxvt*.shading:   change the background (always)
+! URxvt..shading:   change the background (always)
 ! 0 to 99 darkens, 101 to 200 lightens
 ! Dont think this is having any effect. Orignially 120
 ! Only extreme (20 and 200) have any effect. Really should
 ! change the actual BD colour
-! URxvt*shading:          10
+! URxvt.shading:          10
 
 ! Pasting
-URxvt*keysym.C-v: perl:clipboard:paste
+URxvt.keysym.C-v: perl:clipboard:paste
 
 ! Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode
-URxvt*iso14755:       false
-URxvt*iso14755_52:    false
+URxvt.iso14755:       false
+URxvt.iso14755_52:    false
 
 ! Enables opening links
 URxvt.perl-ext-common: default,matcher,config-reload

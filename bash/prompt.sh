@@ -27,7 +27,7 @@ bash_prompt() {
   # reset colors
   local RESET="\[\033[0;37m\]"
 
-  PS1="[\t]$R${debian_chroot:+($debian_chroot)}$Y\u@\h$RESET:$C\w$G\$$RESET "
+  PS1="$BW[\t]$R${debian_chroot:+($debian_chroot)}$Y\u@\h$RESET:$C\w$G\$$RESET "
 
 }
 
