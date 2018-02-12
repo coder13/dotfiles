@@ -3,6 +3,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.bashrc: bashrc
+    ~/.bash: bash
     ~/.profile: profile
     ~/.i3: i3
     ~/.vimrc: vimrc

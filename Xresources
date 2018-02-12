@@ -78,50 +78,50 @@ rofi.bc:         base01
 ! the short names for fonts are in /usr/share/fonts/X11/misc/fonts.alias
 ! to specify an X11 core font, just specify its name or prefix it with "x:". 
 ! To specify an XFT-font, you need to prefix it with "xft:", e.g.:
-!               urxvt -fn "xft:Bitstream Vera Sans Mono:pixelsize=15"
-!               urxvt -fn "9x15bold,xft:Bitstream Vera Sans Mono"
+!               URxvt -fn "xft:Bitstream Vera Sans Mono:pixelsize=15"
+!               URxvt -fn "9x15bold,xft:Bitstream Vera Sans Mono"
 !
 ! should only be xft=fontconfig so these 'core' fonts should be changed. 
 ! updated 2015-11-25
-urxvt*font:         xft:Hack:style=Regular:pixelsize=12:antialias=true
-urxvt*boldFont:     xft:Hack:style=Bold:pixelsize=12
+URxvt*font:         xft:Hack:style=Regular:pixelsize=12:antialias=true
+URxvt*boldFont:     xft:Hack:style=Bold:pixelsize=12
 
 ! UnderLine:
-urxvt*colorULMode:  off
-urxvt*colorUL:     #FFFF00
+URxvt*colorULMode:  off
+URxvt*colorUL:     #FFFF00
 
 !! this makes the prompt yellow, I think
 URxvt*colorIT: base0A
 !! URxvt*colorBD: #DB6E00 overridded in the Seoul256 colorscheme
 !URxvt*colorRV: #ff0000
 !! changes the prompt colour
-!urxvt*intensityStyles:	true
+!URxvt*intensityStyles:	true
 
-!urxvt*underlineColor:   base01
-urxvt*pointerColor:     base0A
+urxvt*underlineColor:   base01
+URxvt*pointerColor:     base0A
 
 ! ----- Scroll: ---------
-urxvt*scrollBar:        false
-urxvt*scrollBar_right:  false
-urxvt*termname:         rxvt-unicode-256color
-urxvt*savelines:        1000
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  false
+URxvt*termname:         rxvt-unicode-256color
+URxvt*savelines:        1000
 
 ! ----- Border: ---------
-urxvt*internalBorder:   2
-urxvt*externalBorder:   0
+URxvt*internalBorder:   2
+URxvt*externalBorder:   0
 
 ! ----- Transparency: ---
-urxvt*transparent:      false
+URxvt*transparent:      false
 
-! urxvt*.shading:   change the background (always)
+! URxvt*.shading:   change the background (always)
 ! 0 to 99 darkens, 101 to 200 lightens
 ! Dont think this is having any effect. Orignially 120
 ! Only extreme (20 and 200) have any effect. Really should
 ! change the actual BD colour
-! urxvt*shading:          10
+! URxvt*shading:          10
 
 ! Pasting
-urxvt*keysym.C-v: perl:clipboard:paste
+URxvt*keysym.C-v: perl:clipboard:paste
 
 ! Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode
 URxvt*iso14755:       false

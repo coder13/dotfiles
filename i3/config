@@ -24,8 +24,8 @@ font pango: Hack 12
 exec --no-startup-id gnome-settings-daemon &
 exec --no-startup-id compton -f
 exec --no-startup-id redshift-gtk &
-exec --no-startup-id ~/bash/xrandr.sh
-exec --no-startup-id ~/bash/feh.sh &
+exec --no-startup-id ~/.dotfiles/scripts/xrandr.sh
+exec --no-startup-id ~/.dotfiles/scripts/feh.sh &
 exec_always --no-startup-id /home/caleb/.dotfiles/polybar/launch.sh &
 
 # Tray:
