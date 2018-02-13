@@ -119,17 +119,10 @@ URxvt.boldFont:     xft:Hack:style=Bold:pixelsize=12:antialias=true
 
 ! UnderLine:
 URxvt.colorULMode:  on
-URxvt.colorUL:     	base02
-
-!! this makes the prompt yellow, I think
-URxvt.colorIT: 			base02
-!! URxvt.colorBD: #DB6E00 overridded in the Seoul256 colorscheme
-!URxvt.colorRV: #ff0000
-!! changes the prompt colour
-URxvt.intensityStyles:	true
-
+URxvt.colorUL:     	color0
 URxvt.underlineColor:   color0
-URxvt.pointerColor:     base02
+
+URxvt.intensityStyles:	true
 
 ! ----- Scroll: ---------
 URxvt.scrollBar:        false

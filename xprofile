@@ -2,6 +2,7 @@ XRESOURCES=$HOME/.Xresources
 
 [ -r $XRESOURCES ] && xrdb -merge $XRESOURCES -I.Xresources.d/
 
+setxkbmap -option caps:escape
 xmodmap ~/.Xmodmap
 echo foo > bar
 xset r rate 200 32

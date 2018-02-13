@@ -18,7 +18,7 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango: DejaVu Sans Mono, Terminus Semi-Condensed 20
-font pango: Hack 12
+font pango: Hack 14
 
 # Background:
 exec --no-startup-id gnome-settings-daemon &
@@ -277,52 +277,63 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # colors
 
-set $base00 #28211c
-set $base01 #36312e
-set $base02 #5e5d5c
-set $base03 #666666
-set $base04 #797977
-set $base05 #8a8986
-set $base06 #9d9b97
-set $base07 #baae9e
-set $base08 #cf6a4c
-set $base09 #cf7d34
-set $base0A #f9ee98
-set $base0B #54be0d
-set $base0C #afc4db
-set $base0D #5ea6ea
-set $base0E #9b859d
-set $base0F #937121
+set $foreground #c5c8c6
+set $background #1d1f21
+set $cursorColor #c5c8c6
 
-# background     base01
-# background-alt base02
-# foreground     base0A
-# foreground-alt base09
-# primary        base0B
-# secondary      base0D
-# alert          base08
+# black
+set $color0 #282a2e
+set $color8 #373b41
+
+# red
+set $color1 #a54242
+set $color9 #cc6666
+
+# green
+set $color2 #8c9440
+set $color10 #b5bd68
+
+# yellow
+set $color3 #de935f
+set $color11 #f0c674
+
+# blue
+set $color4 #5f819d
+set $color12 #81a2be
+
+# magenta
+set $color5 #85678f
+set $color13 #b294bb
+
+# cyan
+set $color6 #5e8d87
+set $color14 #8abeb7
+
+# white
+set $color7 #707880
+set $color15 #c5c8c6
 
 bar {
+    font pango: Hack 16
     position bottom
     tray_output primary
 
     colors {
-        separator $base03
-        background $base01
-        statusline $base0A
+        background $background
+        statusline $color8
         # Class             border  BG      Text
-        focused_workspace   $base03 $base03 $base0A
-        active_workspace    $base02 $base02 $base0A
-        inactive_workspace  $base01 $base01 $base0A
-        urgent_workspace    $base08 $base08 $base0A
+        focused_workspace   $color2 $color2 $foreground
+        active_workspace    $color8 $color8 $foreground
+        inactive_workspace  $background $background $foreground
+        urgent_workspace    $color1 $color1 $foreground
     }
 }
 
-client.focused          $base03 $base03 $base0A $base01 $base03
-client.focused_inactive $base02 $base02 $base0A $base01 $base02
-client.unfocused        $base01 $base01 $base0A $base01 $base01
-client.urgent           $base02 $base08 $base0A $base08 $base0A
-client.background       $base0A
+client.focused          $color2     $color2     $foreground $background $color2
+client.focused_inactive $color0     $color0     $foreground $background $color0
+client.unfocused        $background $background $foreground $background $background
+client.urgent           $color1      $color1    $foreground $background $color1
+client.background       $background
 
 focus_follows_mouse no
 new_window none

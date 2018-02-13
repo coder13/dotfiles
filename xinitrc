@@ -9,12 +9,6 @@ echo foo
 XRESOURCES=$HOME/.Xresources
 export LANG=en_US.utf8
 
-# generates a ssh-agent script to be run on zsh startup
-_ssh_agent(){
-    echo "# ssh-agent generated on $(date) by _ssh_agent"
-    ssh-agent | grep -v "echo" > ~/.zsh.d/ssh-agent
-}
-
 # quiet version of which
 _which(){
     which >/dev/null 2>&1
@@ -30,9 +24,7 @@ _rie(){
 [ -r $XRESOURCES ] && xrdb -I.Xresources.d/ -merge $XRESOURCES
 _rie nvidia-settings -a InitialPixmapPlacement=2
 _which ssh-agent && _ssh-agent
-[ -x $HOME/.screenlayout/default.sh ] && $HOME/.screenlayout/default.sh
-
-setxkbmap -option caps:escape
+[ -x $HOME/.dotfiles/scripts/xrandr.sh ] && $HOME/.dotfiles/scripts/xrandr.sh
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -40,8 +32,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   done
   unset f
 fi
-
-# xmodmap ~/.Xmodmap
 
 if [ -n "$1" ]
 then
