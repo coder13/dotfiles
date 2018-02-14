@@ -114,13 +114,13 @@ rofi.bc:         def_color15
 !
 ! should only be xft=fontconfig so these 'core' fonts should be changed. 
 ! updated 2015-11-25
-URxvt.font:         xft:Hack:style=Regular:pixelsize=12:antialias=true
-URxvt.boldFont:     xft:Hack:style=Bold:pixelsize=12:antialias=true
+URxvt.font:         xft:Hack:style=Regular:pixelsize=14:antialias=true
+URxvt.boldFont:     xft:Hack:style=Bold:pixelsize=14:antialias=true
 
 ! UnderLine:
 URxvt.colorULMode:  on
-URxvt.colorUL:     	color0
-URxvt.underlineColor:   color0
+URxvt.colorUL:     	def_color0
+URxvt.underlineColor:   def_color0
 
 URxvt.intensityStyles:	true
 

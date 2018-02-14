@@ -69,8 +69,9 @@ floating_modifier $mod
 floating_minimum_size 75 x 50
 
 # start a terminal
-bindsym $mod+Return exec urxvt -e /usr/bin/tmux
-bindsym $mod+Shift+Return exec urxvt
+bindsym $mod+Return exec urxvt
+# start a tmux terminal
+bindsym $mod+Shift+Return exec ~/.dotfiles/scripts/rofi-tmux.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill

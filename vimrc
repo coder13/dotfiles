@@ -16,7 +16,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutte'
+Plugin 'airblade/vim-gitgutter'
 
 " Color Themes
 Plugin 'flazz/vim-colorschemes'
@@ -25,7 +25,7 @@ call vundle#end()
 
 """"""""
 set background=dark
-colorscheme bespin
+colorscheme default
 
 
 """"""""

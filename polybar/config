@@ -68,15 +68,15 @@ modules-left = xwindow
 modules-center = 
 modules-right = comps volume btc memory date
 
-tray-position = right
-tray-padding = 0
+;tray-position = right
+;tray-padding = 0
 ;tray-transparent = true
 ;tray-background = {colors.background}
-tray-detached = false
-tray-scale = 1.0
+;tray-detached = false
+;tray-scale = 1.0
 
 ;wm-restack = bspwm
-wm-restack = i3
+;wm-restack = i3
 
 ;override-redirect = true
 
@@ -146,22 +146,23 @@ label = "%date% %time%"
 type = internal/volume
 
 master-soundcard = hw:0
+mapped = true
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = VOL     %{F#f00}MUTED
+format-muted-foreground = 
 
+format-volume = <label-volume> <bar-volume>
 bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.base0B}
-bar-volume-foreground-1 = ${colors.base0B}
-bar-volume-foreground-2 = ${colors.base0B}
-bar-volume-foreground-3 = ${colors.base0B}
-bar-volume-foreground-4 = ${colors.base0B}
-bar-volume-foreground-5 = ${colors.base09}
-bar-volume-foreground-6 = ${colors.base08}
+bar-volume-foreground-0 = ${colors.color0}
+bar-volume-foreground-1 = ${colors.color8}
+bar-volume-foreground-2 = ${colors.color1}
+bar-volume-foreground-3 = ${colors.color1}
+bar-volume-foreground-4 = ${colors.color9}
+bar-volume-foreground-5 = ${colors.color2}
+bar-volume-foreground-6 = ${colors.color10}
 bar-volume-gradient = false
 bar-volume-indicator = │
 bar-volume-indicator-font = 2
@@ -170,7 +171,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.foreground}
 
 [module/btc]
 type = custom/script
