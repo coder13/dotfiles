@@ -16,6 +16,7 @@
     ~/.Xmodmap: Xmodmap
     ~/.compton.conf: compton.conf
     ~/.config/polybar: polybar
+    ~/.config/dunst: dunst
     ~/.urxvt: urxvt
     ~/bin: bin
 
