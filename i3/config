@@ -20,15 +20,20 @@ set $mod Mod4
 # font pango: DejaVu Sans Mono, Terminus Semi-Condensed 20
 font pango: Hack 14
 
-# Background:
+## Background ##
+
+# gnome 
 exec --no-startup-id gnome-settings-daemon &
+exec_always --no-startup-id gnome-power-manager
+
+# startup
 exec --no-startup-id compton -f
-exec --no-startup-id redshift-gtk &
 exec --no-startup-id ~/.dotfiles/scripts/xrandr.sh
 exec --no-startup-id ~/.dotfiles/scripts/feh.sh &
 exec_always --no-startup-id /home/caleb/.dotfiles/polybar/launch.sh &
 
 # Tray:
+exec --no-startup-id redshift-gtk &
 exec --no-startup-id shutter --min_at_startup &
 exec --no-startup-id nm-applet --tray
 exec --no-startup-id blueman-applet --tray
@@ -69,16 +74,17 @@ floating_modifier $mod
 floating_minimum_size 75 x 50
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvt -name floating
 # start a tmux terminal
-bindsym $mod+Shift+Return exec ~/.dotfiles/scripts/rofi-tmux.sh
+bindsym $mod+Shift+Return exec ~/.dotfiles/rofi/rofi-tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show run -run-command "bash -i -c '{cmd}'"
-bindsym $mod+plus exec --no-startup-id ~/.dotfiles/scripts/=
+bindsym $mod+Menu exec --no-startup-id rofi -show window
+bindsym $mod+plus exec --no-startup-id ~/.dotfiles/rofi/=
 
 # change focus with cursor keys:
 bindsym $mod+Left focus left
@@ -216,11 +222,15 @@ mode "$mode_gaps_outer" {
     bindsym Escape mode "default"
 }
 
-# Window stuff: 
+## Window stuff ## 
 
+# workspaces:
 for_window [class="Rhythmbox"] move container to workspace M
 for_window [class="Spotify"] move container to workspace M
+for_window [class="discord"] move container to workspace 2
+for_window [class="Slack"] move container to workspace 2
 
+# floating:
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -235,7 +245,7 @@ for_window [class="(?i)pavucontrol"] floating enable, border normal, move positi
 for_window [class="Wine"] floating enable
 for_window [class="Shutter"] floating enable
 
-for_window [instance="floating"] floating enable
+for_window [instance="floating"] floating enable border pixel 2
 
 # probably don't want
 # for_window [window_role="app"] floating enable

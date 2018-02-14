@@ -17,6 +17,7 @@
     ~/.compton.conf: compton.conf
     ~/.config/polybar: polybar
     ~/.urxvt: urxvt
+    ~/bin: bin
 
 - shell:
     - [get submodule update --init --recursive, Installing submodules]
