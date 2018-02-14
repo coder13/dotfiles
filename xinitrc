@@ -4,10 +4,10 @@
 #
 # Executed by startx (run your window manager from here)
 
-echo foo
-
 XRESOURCES=$HOME/.Xresources
 export LANG=en_US.utf8
+
+[ -r $XRESOURCES ] && xrdb -merge $XRESOURCES -I.Xresources.d/
 
 # quiet version of which
 _which(){

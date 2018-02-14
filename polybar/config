@@ -77,7 +77,6 @@ modules-right = comps volume btc memory date
 
 ;wm-restack = bspwm
 ;wm-restack = i3
-
 ;override-redirect = true
 
 ;scroll-up = bspwm-desknext
